@@ -278,6 +278,12 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
 .callout li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .callout li strong{color:var(--white);font-weight:600}
 .note{font-size:.74rem;color:rgba(255,255,255,.32);margin-top:14px;text-align:center;line-height:1.6}
+.cases.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.cases.three{grid-template-columns:1fr}}
+.case-name{font-family:'Fraunces',Georgia,serif;font-size:1.45rem;font-weight:300;color:#fff;line-height:1.15;margin-bottom:8px}
+.pquote{margin-top:26px;border-left:2px solid var(--gold);padding:4px 0 4px 22px}
+.pquote p{font-family:'Fraunces',Georgia,serif;font-size:1.1rem;font-weight:300;font-style:italic;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:10px}
+.pquote cite{font-style:normal;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
 .q-list{margin-top:6px}
 .q-list li{font-size:.83rem;color:var(--muted);line-height:1.55;padding-left:14px;position:relative;margin-bottom:7px;list-style:none}
 </style>
@@ -540,22 +546,31 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
   </div>
 </div>
 
-<!-- ── PROOF ──────────────────────────────────────────── -->
+<!-- ── PROOF ────────────────────────────────── -->
 <div class="section reveal" style="padding-top:0">
   <div class="sec-label">Proof</div>
-  <div class="sec-title">It has been tested against the alternative.</div>
-  <div class="sec-sub"></div>
-  <div class="cases">
+  <div class="sec-title">Ticketing and hospitality already run on Milo.</div>
+  <div class="sec-sub">Different businesses, the same shape of problem: the sale, the spend and the settlement sit in systems that were never designed to be read together.</div>
+  <div class="cases three">
     <div class="case-card">
-      <div class="case-stat">~95%</div>
-      <div class="case-label">National Operator · Forecast Accuracy</div>
-      <p>A national operator asked us to benchmark Milo against a specialist analytics consultancy's model. We connected Milo to the same data and reproduced their quarterly rankings. <strong>Milo matched within 95% of the consultancy's output</strong>, in a fraction of the time and cost.</p>
+      <div class="case-name">See Tickets</div>
+      <div class="case-label">Ticketing &middot; Milo's first proof of concept</div>
+      <p>The very first proof of concept Milo ever ran was in ticketing, which is why it is the sector we know best. Sales in one system, marketing spend in another, settlement in a third. <strong>That is the same shape as a token sold in one place and redeemed in 300 others.</strong></p>
     </div>
     <div class="case-card">
-      <div class="case-stat">&lt;20 min</div>
-      <div class="case-label">Large Group · Weekly Reporting</div>
-      <p>A large group was hand-building weekly performance packs across 300+ sites. Each one took an analyst a full day. <strong>With Milo it takes under 20 minutes</strong> &mdash; and the pack now sends itself every Monday morning.</p>
+      <div class="case-name">Nikki Beach Global</div>
+      <div class="case-label">Beach clubs, hotels &amp; restaurants &middot; worldwide</div>
+      <p>A luxury hospitality group running venues across several countries, each with its own bookings, its own tills and its own season. <strong>One view of the whole estate this week, on one basis</strong> &mdash; without waiting for every site to send its numbers in.</p>
     </div>
+    <div class="case-card">
+      <div class="case-name">Urban Leisure Group</div>
+      <div class="case-label">Bars &amp; late-night venues &middot; London</div>
+      <p>Several venues, one operations team, no data team anywhere in the business, and a Monday spreadsheet that took most of a morning to assemble. <strong>It does not get built any more.</strong> Nobody rebuilt the process either. It stopped being necessary once the numbers turned up on their own.</p>
+    </div>
+  </div>
+  <div class="pquote">
+    <p>&ldquo;The Monday spreadsheet doesn't get built any more. Nobody rebuilt the process, it just stopped being necessary.&rdquo;</p>
+    <cite>Operations, Urban Leisure Group</cite>
   </div>
 </div>
 
@@ -637,7 +652,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
 
 /* ── TICKER ──────────────────────────────────── */
 (function(){
-  const items=['Sales by channel','Redemption by theatre','Unredeemed balances','Repeat buyers','Corporate accounts','Christmas forecasting','E-gift vs physical card','Retail stockist performance','Campaign to sale, proven','Answers in plain English','Anyone can build a dashboard','Live in weeks'];
+  const items=['See Tickets','Sales by channel','Redemption by theatre','Nikki Beach Global','Unredeemed balances','Repeat buyers','Urban Leisure Group','Corporate accounts','Christmas forecasting','E-gift vs physical card','Campaign to sale, proven','Answers in plain English','Anyone can build a dashboard','ISO 27001 · SOC 2'];
   const t=document.getElementById('ticker');
   [...items,...items].forEach(txt=>{
     const s=document.createElement('span');s.className='ticker-item';
