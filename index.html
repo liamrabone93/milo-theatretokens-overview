@@ -284,6 +284,18 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
 .pquote{margin-top:26px;border-left:2px solid var(--gold);padding:4px 0 4px 22px}
 .pquote p{font-family:'Fraunces',Georgia,serif;font-size:1.1rem;font-weight:300;font-style:italic;color:rgba(255,255,255,.88);line-height:1.5;margin-bottom:10px}
 .pquote cite{font-style:normal;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.poster{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px;text-align:center;text-decoration:none;color:var(--white);background:radial-gradient(80% 90% at 50% 42%,#18233a 0%,#0e1420 55%,#05070c 100%);cursor:pointer;overflow:hidden}
+.poster::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 55% 60% at 50% 45%,#000,transparent 80%);mask-image:radial-gradient(ellipse 55% 60% at 50% 45%,#000,transparent 80%);pointer-events:none}
+.poster>*{position:relative}
+.p-mark{font-size:2rem;font-weight:700;background:linear-gradient(90deg,#5BC8F5,#7B5CF5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em;line-height:1}
+.p-ttl{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(1.25rem,3vw,1.9rem);line-height:1.1}
+.p-play{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,#5BC8F5,#7B5CF5);display:grid;place-items:center;box-shadow:0 16px 44px rgba(91,200,245,.34);transition:transform .25s ease}
+.poster:hover .p-play,.poster:focus-visible .p-play{transform:scale(1.07)}
+.p-sub{font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.poster:focus-visible{outline:2px solid #5BC8F5;outline-offset:-5px}
+.vid-note{text-align:center;margin-top:16px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.vid-note a{color:#5BC8F5;font-weight:600}
+@media(max-width:700px){.p-mark{font-size:1.5rem}.p-play{width:56px;height:56px}.poster{gap:12px}}
 .q-list{margin-top:6px}
 .q-list li{font-size:.83rem;color:var(--muted);line-height:1.55;padding-left:14px;position:relative;margin-bottom:7px;list-style:none}
 </style>
@@ -305,7 +317,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
   <div class="hero-content">
     <div class="hero-tag">Prepared for Theatre Tokens</div>
     <h1 id="h1"></h1>
-    <p class="hero-sub">Milo is an AI data analyst. It plugs into the systems you already use &mdash; your new CRM, your website, the gift card platform, finance, and the redemption data coming back from theatres &mdash; and answers questions in plain English. You ask the way you'd ask a colleague. You get the answer in seconds.</p>
+    <p class="hero-sub">Milo is an AI data analyst. It plugs into the systems you already use: your new CRM, your website, the gift card platform, finance, and the redemption data coming back from theatres. Then it answers questions in plain English. You ask the way you'd ask a colleague. You get the answer in seconds.</p>
     <div class="hero-badges">
       <span class="badge a">No SQL, no spreadsheets</span>
       <span class="badge">Browser · Slack · Teams · Email</span>
@@ -317,10 +329,16 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
 
 <!-- ── VIDEO ─────────────────────────────────────────── -->
 <div id="video-section">
-  <div class="video-wrap">
-    <iframe src="https://player.vimeo.com/video/1196983997?background=1&autoplay=1&loop=1&muted=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <div class="video-wrap" id="vidframe" data-vid="1196983997">
+    <a class="poster" id="vidplay" href="https://vimeo.com/1196983997" target="_blank" rel="noopener" aria-label="Play the Milo product overview, 1 minute 29 seconds">
+      <span class="p-mark">Milo</span>
+      <span class="p-ttl">Milo product overview</span>
+      <span class="p-play" aria-hidden="true"><svg width="20" height="24" viewBox="0 0 20 24"><path d="M3 2.5 L18 12 L3 21.5 Z" fill="#080c14"/></svg></span>
+      <span class="p-sub">Press play &middot; 1 min 29 sec</span>
+    </a>
     <div class="video-scan"></div>
   </div>
+  <p class="vid-note">Not playing? <a href="https://vimeo.com/1196983997" target="_blank" rel="noopener">Watch it on Vimeo</a></p>
 </div>
 
 <!-- ── TICKER ─────────────────────────────────────────── -->
@@ -338,7 +356,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
     <div class="plain-card">
       <div class="pn">1</div>
       <h4>It connects to your systems</h4>
-      <p>We build the connections to the tools Theatre Tokens already runs &mdash; the CRM, the website, the gift card platform, finance, email marketing. <em>Read-only, so nothing can be changed or broken.</em> You don't move to a new system or change how anyone works.</p>
+      <p>We build the connections to the tools Theatre Tokens already runs: the CRM, the website, the gift card platform, finance, email marketing. <em>Read-only, so nothing can be changed or broken.</em> You don't move to a new system or change how anyone works.</p>
     </div>
     <div class="plain-card">
       <div class="pn">2</div>
@@ -348,7 +366,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
     <div class="plain-card">
       <div class="pn">3</div>
       <h4>You get the answer in seconds</h4>
-      <p>A number, a chart, or a short written explanation &mdash; with the source shown so you can check it. <em>Liked the answer? Turn it into a dashboard or a weekly email in one click</em>, and it keeps itself up to date.</p>
+      <p>A number, a chart, or a short written explanation, with the source shown so you can check it. <em>Liked the answer? Turn it into a dashboard or a weekly email in one click</em>, and it keeps itself up to date.</p>
     </div>
   </div>
 </div>
@@ -359,7 +377,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
     <h3>Why the CRM go-live makes this the right moment</h3>
     <p>A CRM tells you who your customers are. Your gift card platform tells you what was bought and redeemed. Finance tells you what it's worth. Right now those three stories live in three places, and joining them up means someone exporting spreadsheets.</p>
     <ul>
-      <li><strong>The customer picture only completes when the CRM meets the redemption data.</strong> Who bought, what they bought, whether it was ever used, and at which theatre &mdash; in one place.</li>
+      <li><strong>The customer picture only completes when the CRM meets the redemption data.</strong> Who bought, what they bought, whether it was ever used, and at which theatre, all in one place.</li>
       <li><strong>New systems are when the questions start.</strong> "Is the CRM data clean?" "Did that campaign actually sell tokens?" Milo answers those on day one, instead of you waiting for reporting to be built.</li>
       <li><strong>You build on the CRM rather than around it.</strong> No second warehouse project, no BI rollout, no extra licences per person.</li>
     </ul>
@@ -377,7 +395,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
       <div class="feat-icon">🎟️</div>
       <h4>Sales &amp; channels</h4>
       <ul>
-        <li>Which channel actually sells &mdash; own website, retail stockists, corporate, group gifting</li>
+        <li>Which channel actually sells: own website, retail stockists, corporate, group gifting</li>
         <li>Physical card vs e-gift vs group pot, and how the mix is shifting</li>
         <li>Average order value by channel and by month</li>
       </ul>
@@ -397,7 +415,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
       <ul>
         <li>Total value issued but not yet redeemed, split by year of issue</li>
         <li>Partly-used tokens sitting with small balances left</li>
-        <li>Which groups of customers need a nudge &mdash; <em>"you have £40 waiting"</em></li>
+        <li>Which groups of customers need a nudge such as <em>"you have £40 waiting"</em></li>
       </ul>
     </div>
     <div class="feat-card">
@@ -406,7 +424,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
       <ul>
         <li>Who buys every year, who bought once, who has lapsed</li>
         <li>What a token buyer is worth over three years, not one order</li>
-        <li>Gift givers vs recipients &mdash; and whether recipients ever come back as buyers</li>
+        <li>Gift givers vs recipients, and whether recipients ever come back as buyers</li>
       </ul>
     </div>
     <div class="feat-card">
@@ -440,7 +458,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
       <div class="feat-icon">💬</div>
       <h4>Customer service patterns</h4>
       <ul>
-        <li>What people actually contact you about &mdash; balances, lost cards, how to redeem</li>
+        <li>What people actually contact you about: balances, lost cards, how to redeem</li>
         <li>Which questions spike at which times of year, so you staff for it</li>
         <li>Where a page or an email could remove the contact altogether</li>
       </ul>
@@ -478,7 +496,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
       <div class="chat-msgs" id="chatMsgs">
         <div class="msg msg-m">
           <div class="av">M</div>
-          <div class="bub">Hi &mdash; I'm connected across your CRM, website, gift card platform and redemption data. Pick a topic above, or type your own question.</div>
+          <div class="bub">Hi. I'm connected across your CRM, website, gift card platform and redemption data. Pick a topic above, or type your own question.</div>
         </div>
       </div>
       <div class="chat-foot">
@@ -504,7 +522,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
 <div class="section reveal">
   <div class="sec-label">Your Tools</div>
   <div class="sec-title">Everything you already run, joined up.</div>
-  <div class="sec-sub">We build the connections &mdash; that's our job, not yours. You keep every system exactly as it is.</div>
+  <div class="sec-sub">We build the connections. That is our job, not yours. You keep every system exactly as it is.</div>
   <div class="int-grid">
     <div class="int-card"><div class="int-tag">CRM</div>Your new CRM, live now</div>
     <div class="int-card"><div class="int-tag">Ecommerce</div>theatretokens.com orders</div>
@@ -526,7 +544,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
     <div class="p-card">
       <div class="p-num">Step 01</div>
       <h4>We connect</h4>
-      <p>Read-only links to your CRM, orders, redemption and finance data. Sandbox or a copy first &mdash; never live systems during a trial.</p>
+      <p>Read-only links to your CRM, orders, redemption and finance data. Sandbox or a copy first, never live systems during a trial.</p>
     </div>
     <div class="p-card">
       <div class="p-num">Step 02</div>
@@ -560,7 +578,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
     <div class="case-card">
       <div class="case-name">Nikki Beach Global</div>
       <div class="case-label">Beach clubs, hotels &amp; restaurants &middot; worldwide</div>
-      <p>A luxury hospitality group running venues across several countries, each with its own bookings, its own tills and its own season. <strong>One view of the whole estate this week, on one basis</strong> &mdash; without waiting for every site to send its numbers in.</p>
+      <p>A luxury hospitality group running venues across several countries, each with its own bookings, its own tills and its own season. <strong>One view of the whole estate this week, on one basis</strong>, without waiting for every site to send its numbers in.</p>
     </div>
     <div class="case-card">
       <div class="case-name">Urban Leisure Group</div>
@@ -615,7 +633,7 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
       <button class="cta-btn">Book a walkthrough →</button>
     </a>
   </div>
-  <p class="contact-line">Liam Rabone · <a href="mailto:liam@milo.ai">liam@milo.ai</a></p>
+  <p class="contact-line">Liam James Rabone · <a href="mailto:liam@milo.ai">liam@milo.ai</a></p>
   <p class="footer-mark">Milo is an Autonomous Minds product &nbsp;·&nbsp; SOC 2 &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; GDPR</p>
 </section>
 
@@ -665,23 +683,23 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
   const demos=[
     {label:'SALES & CHANNELS',
      q:'Where did token sales come from last month, and how does that compare with the same month last year?',
-     ans:'Total sales are up 9% year on year. The own website is doing the heavy lifting, up 22%, and e-gift cards are now 41% of orders against 29% last year. Retail stockists are down 14% — that is concentrated in a handful of locations rather than being a broad decline. Corporate is flat in order count but up in value, because average order size has grown.',
+     ans:'Total sales are up 9% year on year. The own website is doing the heavy lifting, up 22%, and e-gift cards are now 41% of orders against 29% last year. Retail stockists are down 14%, and that is concentrated in a handful of locations rather than a broad decline. Corporate is flat in order count but up in value, because average order size has grown.',
      chart:[{l:'Website (e-gift)',p:94,d:'+22%',pos:true},{l:'Website (physical)',p:66,d:'+7%',pos:true},{l:'Corporate',p:58,d:'+11%',pos:true},{l:'Group gifting',p:34,d:'+4%',pos:true},{l:'Retail stockists',p:41,d:'−14%',pos:false}]},
     {label:'REDEMPTION',
      q:'Which theatres are redeeming the most, and how long after purchase do tokens actually get used?',
-     ans:'Half of all redemption value sits with 18 venues, almost all West End. The median gap between purchase and first use is 94 days, with a clear spike in January as Christmas gifts get spent. Regional venues show a longer lag — around 140 days — which suggests people wait for a specific show rather than booking straight away.',
-     chart:[{l:'West End (top 18)',p:96,d:'51% of value',pos:true},{l:'Other London',p:52,d:'18%',pos:true},{l:'Regional — major',p:44,d:'21%',pos:true},{l:'Regional — smaller',p:22,d:'10%',pos:true},{l:'Never redeemed yet',p:31,d:'Follow up',pos:false}]},
+     ans:'Half of all redemption value sits with 18 venues, almost all West End. The median gap between purchase and first use is 94 days, with a clear spike in January as Christmas gifts get spent. Regional venues show a longer lag of around 140 days, which suggests people wait for a specific show rather than booking straight away.',
+     chart:[{l:'West End (top 18)',p:96,d:'51% of value',pos:true},{l:'Other London',p:52,d:'18%',pos:true},{l:'Regional (major)',p:44,d:'21%',pos:true},{l:'Regional (smaller)',p:22,d:'10%',pos:true},{l:'Never redeemed yet',p:31,d:'Follow up',pos:false}]},
     {label:'OUTSTANDING VALUE',
      q:'How much token value is issued but not yet redeemed, split by the year it was sold?',
-     ans:'Outstanding balance is £6.4m. Most of it is recent — tokens sold in the last 18 months, which is normal and will largely be redeemed. The tail matters more: £1.1m was issued more than three years ago, and a third of that sits in part-used balances under £25, which people typically forget they have. Those are the ones worth a reminder email.',
+     ans:'Outstanding balance is £6.4m. Most of it is recent, from tokens sold in the last 18 months, which is normal and will largely be redeemed. The tail matters more: £1.1m was issued more than three years ago, and a third of that sits in part-used balances under £25, which people typically forget they have. Those are the ones worth a reminder email.',
      chart:[{l:'Sold this year',p:88,d:'£2.9m',pos:true},{l:'Last year',p:71,d:'£1.6m',pos:true},{l:'2–3 years ago',p:36,d:'£0.8m',pos:true},{l:'3+ years ago',p:48,d:'£1.1m',pos:false},{l:'Part-used under £25',p:24,d:'£0.4m',pos:false}]},
     {label:'CUSTOMERS (CRM)',
-     q:'Now the CRM is live — who buys more than once, and what is a token buyer worth over three years?',
-     ans:'23% of buyers have ordered more than once, and they account for 44% of value. A repeat buyer is worth roughly 3.1× a one-time buyer over three years. The strongest signal for a second purchase is the first one landing in the run-up to Christmas. Around 6,800 buyers who ordered in each of the last two Decembers have not ordered this year — that is your most obvious list.',
+     q:'Now the CRM is live, who buys more than once, and what is a token buyer worth over three years?',
+     ans:'23% of buyers have ordered more than once, and they account for 44% of value. A repeat buyer is worth roughly 3.1× a one-time buyer over three years. The strongest signal for a second purchase is the first one landing in the run-up to Christmas. Around 6,800 buyers who ordered in each of the last two Decembers have not ordered this year. That is your most obvious list.',
      chart:[{l:'Repeat buyers',p:44,d:'44% of value',pos:true},{l:'One-time buyers',p:56,d:'56% of value',pos:true},{l:'Bought 3+ times',p:19,d:'High value',pos:true},{l:'Lapsed Dec buyers',p:38,d:'6,800',pos:false}]},
     {label:'CORPORATE',
      q:'Which corporate accounts ordered last year but have not ordered yet this year?',
-     ans:'47 accounts have gone quiet, worth £312k last year. Nine of them are above £10k each and account for over half that figure. Most placed their order in early November last year, so the window is now rather than December. I have drafted the list with contact owner, last order date and value — and I can alert you automatically next year when an account passes its usual reorder date.',
+     ans:'47 accounts have gone quiet, worth £312k last year. Nine of them are above £10k each and account for over half that figure. Most placed their order in early November last year, so the window is now rather than December. I have drafted the list with contact owner, last order date and value, and I can alert you automatically next year when an account passes its usual reorder date.',
      chart:[{l:'Lapsed £10k+',p:92,d:'9 accounts',pos:false},{l:'Lapsed £2–10k',p:57,d:'16 accounts',pos:false},{l:'Lapsed under £2k',p:33,d:'22 accounts',pos:false},{l:'Ordered already',p:74,d:'£486k',pos:true}]},
     {label:'CHRISTMAS PLANNING',
      q:'Based on the last three years, what should we expect week by week this Christmas?',
@@ -734,6 +752,21 @@ tbody tr:hover td.mc{background:rgba(91,200,245,.1)}
   let autoIdx=0;
   function autoRun(){run(autoIdx);autoIdx=(autoIdx+1)%demos.length}
   setTimeout(()=>{autoRun();setInterval(autoRun,7000)},2000);
+})();
+
+/* ── VIDEO POSTER ────────────────────────────── */
+(function(){
+  var f=document.getElementById('vidframe'),p=document.getElementById('vidplay'),h=location.hostname;
+  var inline=h===''||/(^|\.)milo\.ai$|\.github\.io$|^localhost$|^127\.0\.0\.1$/.test(h);
+  if(f&&p&&inline){p.addEventListener('click',function(e){
+    e.preventDefault();
+    var i=document.createElement('iframe');
+    i.src='https://player.vimeo.com/video/'+f.dataset.vid+'?title=0&byline=0&portrait=0&dnt=1&autoplay=1';
+    i.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
+    i.setAttribute('allowfullscreen','');
+    i.setAttribute('title','Milo product overview');
+    f.appendChild(i);p.remove();
+  });}
 })();
 
 /* ── SCROLL REVEAL ───────────────────────────── */
